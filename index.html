@@ -768,7 +768,7 @@
     max-height:0; overflow:hidden;
     transition:max-height 0.5s cubic-bezier(.2,.8,.2,1);
   }
-  .expand-panel.open{max-height:800px;}
+  .expand-panel.open{max-height:5000px;}
   .expand-panel-inner{
     padding-top:24px; margin-top:24px; border-top:1px solid var(--border);
   }
@@ -781,6 +781,48 @@
   }
   .expand-placeholder .icon-dot{
     width:6px; height:6px; border-radius:50%; background:var(--violet); flex-shrink:0;
+  }
+  .case-study{
+    color:var(--text-dim); font-size:0.9rem; line-height:1.75;
+  }
+  .case-study h3{
+    color:var(--text); font-family:var(--font-display); font-size:1.3rem;
+    font-weight:500; margin:26px 0 10px;
+  }
+  .case-study h3:first-child{margin-top:0;}
+  .case-study h4{
+    color:var(--text); font-size:0.95rem; font-weight:600; margin:20px 0 6px;
+  }
+  .case-study p{margin-bottom:14px;}
+  .case-study strong{color:var(--text); font-weight:600;}
+  .case-study ul{margin:0 0 16px 20px;}
+  .case-study li{padding-left:5px; margin-bottom:5px;}
+  .case-study .research-loop{
+    color:var(--blue); font-family:var(--font-mono); font-size:0.78rem;
+    line-height:1.8; padding:14px 16px; margin:14px 0 20px;
+    background:rgba(90,169,230,0.06); border-left:2px solid var(--blue);
+  }
+  .case-study .equation{
+    color:var(--text); font-family:var(--font-mono); font-size:0.82rem;
+    padding:12px 16px; margin:12px 0 16px; overflow-x:auto;
+    background:rgba(109,123,255,0.06); border:1px solid var(--border);
+    border-radius:8px;
+  }
+  .case-study .research-cycle{
+    color:var(--text-dim); font-family:var(--font-mono); font-size:0.76rem;
+    white-space:pre-line; padding:14px 16px; margin:14px 0 20px;
+    background:rgba(109,123,255,0.05); border-radius:8px;
+  }
+  .case-study .metric-table{width:100%; border-collapse:collapse; margin:12px 0 20px;}
+  .case-study .metric-table th,
+  .case-study .metric-table td{
+    text-align:left; padding:9px 10px; border-bottom:1px solid var(--border);
+  }
+  .case-study .metric-table th{color:var(--text-faint); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em;}
+  .case-study .metric-table td:first-child{color:var(--text); font-weight:500;}
+  .case-study blockquote{
+    margin:14px 0 18px; padding:12px 16px; border-left:2px solid var(--violet);
+    color:var(--text); background:rgba(155,124,255,0.05);
   }
   .badge-since{
     font-family:var(--font-mono); font-size:0.76rem; color:var(--text-faint);
@@ -1481,9 +1523,125 @@
             </button>
             <div class="expand-panel" data-panel="worldquant-detail">
               <div class="expand-panel-inner">
-                <div class="expand-placeholder">
-                  <span class="icon-dot"></span>
-                  Detailed case study — methodology, specific alpha strategies, and results — coming soon.
+                <div class="case-study">
+                  <h3>WorldQuant — Quantitative Alpha Research</h3>
+                  <p><strong>Research Consultant · Jun 2026 – Present · Remote</strong></p>
+
+                  <h3>Overview</h3>
+                  <p>As a Research Consultant at <strong>WorldQuant</strong>, I work on quantitative alpha research using the WorldQuant BRAIN platform. My work involves designing systematic trading signals, testing their historical performance, analyzing risk and turnover characteristics, and iteratively refining signals based on empirical results.</p>
+                  <p>To date, I have developed <strong>50+ quantitative alphas</strong> and conducted <strong>600+ simulations</strong> across <strong>5+ global equity regions</strong>.</p>
+
+                  <h3>01 — The Research Problem</h3>
+                  <p>The objective of quantitative alpha research is to identify systematic signals that can potentially explain differences in future asset returns.</p>
+                  <p>Rather than relying on discretionary trading decisions, I approached the problem as an iterative research pipeline:</p>
+                  <div class="research-loop">Hypothesis → Signal Construction → Backtest → Evaluation → Refinement → Validation</div>
+                  <p>The key challenge was not simply producing a high-return signal, but developing signals that demonstrated a combination of:</p>
+                  <ul>
+                    <li>Predictive power</li>
+                    <li>Risk-adjusted performance</li>
+                    <li>Stability across time</li>
+                    <li>Controlled turnover</li>
+                    <li>Robustness across different markets</li>
+                    <li>Low dependence on a single underlying factor</li>
+                  </ul>
+
+                  <h3>02 — Research Methodology</h3>
+                  <p>My research process consisted of several stages.</p>
+                  <h4>1. Factor Exploration</h4>
+                  <p>I explored different categories of market information that could potentially contain predictive signals, including:</p>
+                  <ul>
+                    <li>Price and return information</li>
+                    <li>Trading volume and volatility</li>
+                    <li>Momentum and mean reversion</li>
+                    <li>Fundamental variables</li>
+                    <li>Cross-sectional relationships</li>
+                    <li>Statistical transformations</li>
+                  </ul>
+                  <p>The goal was to identify economically or statistically motivated relationships that could be converted into systematic signals.</p>
+                  <h4>2. Alpha Construction</h4>
+                  <p>I transformed these observations into mathematical expressions that assign relative scores to securities.</p>
+                  <div class="equation">Alpha<sub>i</sub> = f(X<sub>i,t</sub>, X<sub>i,t-1</sub>, ..., X<sub>i,t-k</sub>)</div>
+                  <p>Here, <em>X</em> represents market or fundamental information and <em>f</em> represents a combination of mathematical transformations. I experimented with ranking, scaling, moving statistics, differences, ratios, time-series transformations, and cross-sectional transformations.</p>
+                  <p>Rather than optimizing a single formula aggressively, I focused on understanding <strong>why a signal was working</strong> and whether its behavior remained consistent under different conditions.</p>
+
+                  <h3>03 — Backtesting &amp; Simulation</h3>
+                  <p>Each candidate alpha was evaluated through historical simulation. For every iteration, I examined multiple dimensions of performance rather than focusing solely on returns.</p>
+                  <h4>Sharpe Ratio</h4>
+                  <p>The Sharpe ratio measures risk-adjusted performance:</p>
+                  <div class="equation">Sharpe = E[R<sub>p</sub> − R<sub>f</sub>] / σ(R<sub>p</sub> − R<sub>f</sub>)</div>
+                  <p>A higher Sharpe generally indicates better return relative to the volatility of those returns.</p>
+                  <h4>Turnover</h4>
+                  <p>Turnover measures how frequently portfolio positions change. High turnover can make a theoretically strong signal less attractive because of transaction costs and market impact. I therefore analyzed the trade-off between <strong>signal strength and portfolio stability</strong>.</p>
+                  <h4>Drawdown</h4>
+                  <p>I also examined maximum drawdown to understand the severity of historical losses:</p>
+                  <div class="equation">MDD = max<sub>t</sub>((Peak<sub>t</sub> − Value<sub>t</sub>) / Peak<sub>t</sub>)</div>
+                  <p>This helped identify signals that generated strong returns but experienced undesirable periods of losses.</p>
+                  <h4>Fitness</h4>
+                  <p>I used the platform's fitness metric as an additional measure for evaluating alpha quality alongside the underlying performance statistics.</p>
+
+                  <h3>04 — Iterative Research</h3>
+                  <p>One of the most important parts of the process was <strong>iteration</strong>.</p>
+                  <div class="research-cycle">Research Idea
+      ↓
+Initial Alpha
+      ↓
+Historical Simulation
+      ↓
+Analyze Sharpe / Turnover / Drawdown / Fitness
+      ↓
+Identify Weakness → Modify Signal → Re-test
+      ↓
+Cross-region Validation
+      ↓
+Final Candidate</div>
+                  <p>Instead of treating the first successful backtest as the final result, I used poor-performing simulations as feedback for subsequent research. A signal could show attractive historical returns but exhibit excessive turnover, large drawdowns, weak performance outside a particular period, strong dependence on one market, or unstable behavior over time.</p>
+
+                  <h3>05 — Representative Research Themes</h3>
+                  <h4>Momentum</h4>
+                  <p>I investigated whether securities exhibiting persistent relative price strength continued to outperform over subsequent periods.</p>
+                  <div class="equation">Momentum<sub>t</sub> = Return<sub>t-k:t</sub></div>
+                  <p>The research involved testing different lookback horizons and transformations while examining whether the signal remained robust after controlling for other characteristics.</p>
+                  <h4>Mean Reversion</h4>
+                  <p>I also explored whether securities experiencing unusually strong recent movements tended to partially revert.</p>
+                  <div class="equation">MR<sub>t</sub> = −(P<sub>t</sub> − MA<sub>t</sub>)</div>
+                  <p>Here, <em>MA</em> represents a moving average or another estimate of recent equilibrium.</p>
+                  <h4>Volume &amp; Price Interaction</h4>
+                  <p>I investigated whether relationships between price behavior and trading activity contained additional information beyond price momentum alone.</p>
+                  <blockquote>Does unusual trading activity combined with a particular price movement provide information beyond price momentum alone?</blockquote>
+                  <h4>Cross-sectional Signals</h4>
+                  <p>A major component of the research involved comparing securities against one another rather than evaluating each security independently.</p>
+                  <div class="equation">Score<sub>i</sub> = Rank(X<sub>i</sub>)</div>
+                  <p>This cross-sectional approach focuses on <strong>relative attractiveness rather than absolute price direction</strong>.</p>
+
+                  <h3>06 — Scale of Research</h3>
+                  <table class="metric-table">
+                    <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+                    <tbody>
+                      <tr><td>Quantitative alphas</td><td><strong>50+</strong></td></tr>
+                      <tr><td>Historical simulations</td><td><strong>600+</strong></td></tr>
+                      <tr><td>Global equity regions</td><td><strong>5+</strong></td></tr>
+                      <tr><td>Alpha ratings</td><td>Good / Excellent / Spectacular</td></tr>
+                      <tr><td>Research approach</td><td>Systematic &amp; factor-based</td></tr>
+                    </tbody>
+                  </table>
+                  <p>The scale of the experiments allowed me to compare different hypotheses, transformations, and signal constructions rather than relying on a small number of isolated experiments.</p>
+
+                  <h3>07 — What I Learned</h3>
+                  <h4>Signal ≠ Strategy</h4>
+                  <p>A strong-looking signal is not automatically a robust trading strategy. Performance needs to be evaluated together with:</p>
+                  <p><strong>Return + Risk + Turnover + Stability + Robustness</strong></p>
+                  <h4>Backtesting Requires Skepticism</h4>
+                  <p>A strong historical result can arise from overfitting, data-specific effects, short-lived market regimes, excessive parameter tuning, or hidden factor exposure. I learned to treat backtest results as <strong>evidence rather than proof</strong>.</p>
+                  <h4>Research Is Iterative</h4>
+                  <p>The most valuable part of quantitative research was often not finding a successful alpha immediately, but understanding <strong>why an unsuccessful alpha failed</strong>. Each simulation provided information that could refine the next hypothesis.</p>
+
+                  <h3>08 — Results</h3>
+                  <p>Through this research process, I developed <strong>50+ quantitative alphas</strong> and performed <strong>600+ simulations across 5+ global equity regions</strong>. The resulting research included alphas receiving <strong>Good, Excellent, and Spectacular ratings</strong> on the WorldQuant BRAIN platform.</p>
+                  <p>I also qualified for <strong>Stage 2 of the WorldQuant International Quant Championship (IQC)</strong>, providing an additional competitive application of the quantitative research skills developed through the process.</p>
+
+                  <h3>09 — Research Takeaway</h3>
+                  <blockquote><strong>Form a hypothesis → translate it into a systematic signal → backtest → analyze risk → identify weaknesses → refine → validate.</strong></blockquote>
+                  <p>This experience strengthened my understanding of the complete quantitative research loop and taught me to approach quantitative trading as a <strong>research problem</strong>, where statistical evidence, robustness, and disciplined experimentation matter as much as raw returns.</p>
                 </div>
               </div>
             </div>
@@ -1504,9 +1662,89 @@
             </button>
             <div class="expand-panel" data-panel="quantclub-detail">
               <div class="expand-panel-inner">
-                <div class="expand-placeholder">
-                  <span class="icon-dot"></span>
-                  Detailed contributions and work at Quant Club coming soon.
+                <div class="case-study">
+                  <h3>Quant Club, IIT Mandi</h3>
+                  <p><strong>Core Member</strong></p>
+
+                  <h3>Overview</h3>
+                  <p>As a Core Member of the Quant Club at IIT Mandi, I have contributed to building a stronger quantitative-finance community on campus through <strong>technical sessions, competitive events, outreach, and inter-college competitions</strong>.</p>
+                  <p>My involvement spans both sides of the club's activities: <strong>teaching and mentoring students in quantitative finance</strong> and <strong>organizing competitions and events that provide hands-on exposure to quantitative problem solving</strong>.</p>
+
+                  <h3>01 — Quantitative Finance Sessions</h3>
+                  <p>One of my key contributions has been conducting sessions for junior students introducing them to the fundamentals of quantitative finance.</p>
+                  <p>The sessions focused on making concepts from financial markets and quantitative trading accessible to students who were beginning their journey in the field.</p>
+                  <p>Topics covered included:</p>
+                  <ul>
+                    <li>Financial markets and market terminology</li>
+                    <li>Quantitative trading fundamentals</li>
+                    <li>Momentum and mean-reversion strategies</li>
+                    <li>Technical indicators</li>
+                    <li>Risk and return</li>
+                    <li>Sharpe ratio and drawdown</li>
+                    <li>Trading signals and backtesting</li>
+                    <li>Introduction to algorithmic trading</li>
+                    <li>Quantitative research methodology</li>
+                  </ul>
+                  <p>Rather than focusing only on theory, I emphasized the connection between <strong>mathematics, programming, statistics, and financial markets</strong>.</p>
+                  <p>A typical learning progression was:</p>
+                  <div class="research-loop">Market Concept → Mathematical Intuition → Strategy → Implementation → Backtesting → Evaluation</div>
+                  <p>This also helped me develop the ability to communicate technical concepts to students with different levels of prior knowledge.</p>
+
+                  <h3>02 — Speed Mathematics Events</h3>
+                  <p>I contributed to organizing speed-mathematics competitions designed to test <strong>calculation speed, numerical accuracy, and mental mathematical reasoning</strong>.</p>
+                  <p>Events such as <strong>Brumble</strong> and <strong>80 in 8</strong> provided students with a competitive environment to develop these skills under time constraints.</p>
+                  <p>My responsibilities included supporting:</p>
+                  <ul>
+                    <li>Event planning and execution</li>
+                    <li>Problem and round coordination</li>
+                    <li>Participant engagement</li>
+                    <li>Promotion and outreach</li>
+                    <li>On-ground event management</li>
+                  </ul>
+                  <p>These events connected naturally with the quantitative side of the club, where fast and accurate numerical reasoning is an important foundational skill.</p>
+
+                  <h3>03 — Quantitative Competitions &amp; Events</h3>
+                  <p>I also contributed to organizing and promoting quant-focused events such as <strong>PokerBots</strong>, giving students an opportunity to apply strategic thinking, probability, game theory, and programming in a competitive environment.</p>
+                  <p>The objective was to move beyond conventional classroom learning and create situations where participants had to:</p>
+                  <div class="research-loop">Understand → Strategize → Implement → Compete → Adapt</div>
+                  <p>These events helped expose students to the broader ecosystem of quantitative problem solving and algorithmic decision-making.</p>
+
+                  <h3>04 — Marketing &amp; Outreach</h3>
+                  <p>Beyond technical activities, I contributed to the <strong>promotion and outreach</strong> of club events.</p>
+                  <p>This involved helping increase awareness of quantitative-finance and mathematics-focused activities among students and encouraging participation in competitions and sessions.</p>
+                  <p>Working on both technical and outreach activities gave me experience in understanding that building a technical community requires more than just conducting sessions. It also requires <strong>engagement, communication, and effective event execution</strong>.</p>
+
+                  <h3>05 — Inter-IIT Tech Meet</h3>
+                  <p>I am also part of the team representing <strong>IIT Mandi at the Inter-IIT Tech Meet</strong>, competing against students from other IITs.</p>
+                  <p>This provides an opportunity to apply the quantitative problem-solving skills developed through the club in a competitive inter-institute environment.</p>
+                  <p>The experience involves working under time constraints, collaborating with teammates, and translating quantitative concepts into practical solutions.</p>
+
+                  <h3>06 — My Contribution to the Club</h3>
+                  <table class="metric-table">
+                    <thead><tr><th>Area</th><th>Contribution</th></tr></thead>
+                    <tbody>
+                      <tr><td>Teaching</td><td>Conducted quantitative-finance sessions for junior students</td></tr>
+                      <tr><td>Competitions</td><td>Helped organize speed-mathematics and quant events</td></tr>
+                      <tr><td>Outreach</td><td>Supported marketing and participant engagement</td></tr>
+                      <tr><td>Representation</td><td>Preparing to represent IIT Mandi at the Inter-IIT Tech Meet</td></tr>
+                    </tbody>
+                  </table>
+
+                  <h3>07 — What I Learned</h3>
+                  <h4>Technical Communication</h4>
+                  <p>Teaching juniors required breaking down mathematical and financial concepts into intuitive explanations.</p>
+                  <h4>Event Management</h4>
+                  <p>Organizing competitions taught me how to coordinate multiple components of an event while dealing with participants, timelines, and execution.</p>
+                  <h4>Community Building</h4>
+                  <p>I learned how technical communities grow through a combination of education, competitions, and student engagement.</p>
+                  <h4>Teamwork</h4>
+                  <p>Working with other core members and preparing for inter-IIT competitions strengthened my ability to collaborate on quantitative problems and execute activities as a team.</p>
+
+                  <h3>Impact</h3>
+                  <p>Through my involvement with the Quant Club, I have contributed to creating opportunities for students to explore quantitative finance and mathematical problem solving through <strong>learning sessions, speed-mathematics competitions, quant events, and competitive activities</strong>.</p>
+                  <p>The experience has allowed me to combine three areas I am particularly interested in:</p>
+                  <blockquote><strong>Quantitative Finance × Mathematics × Programming</strong></blockquote>
+                  <p>It has also helped me develop the communication, leadership, and organizational skills required to build a technical community.</p>
                 </div>
               </div>
             </div>
